@@ -11,6 +11,6 @@ namespace Contacts
     {
         static string databaseName = "Contacts.db";
         static string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-        static string databasePath = Path.Combine(folderPath, databaseName);
+        public static string databasePath = Path.Combine(folderPath, databaseName);
     }
 }
