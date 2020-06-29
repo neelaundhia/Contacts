@@ -1,4 +1,7 @@
-﻿using System.Windows;
+﻿using Contacts.Classes;
+using SQLite;
+using System.Windows;
+
 namespace Contacts
 {
     /// <summary>
@@ -16,6 +19,17 @@ namespace Contacts
             NewContactWindow newContactWindow = new NewContactWindow();
             newContactWindow.ShowDialog();
 
+            ReadDatabase();
+
+        }
+
+        void ReadDatabase()
+        {
+            using (SQLiteConnection conn = new SQLiteConnection(App.databasePath))
+            {
+                conn.CreateTable<Contact>();
+                var contacts = conn.Table<Contact>().ToList();
+            }
         }
     }
 }
