@@ -9,8 +9,8 @@ namespace Contacts
     /// </summary>
     public partial class App : Application
     {
-        string databaseName = "Contacts.db";
-        string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-        string databasePath = Path.Combine(folderPath, databaseName);
+        public string databaseName = "Contacts.db";
+        public string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        public string databasePath = Path.Combine(folderPath, databaseName);
     }
 }
