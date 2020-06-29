@@ -4,6 +4,7 @@ namespace Contacts.Classes
 {
     class Contact
     {
+        //SQLite Attributes
         [PrimaryKey, AutoIncrement]
 
         public int ID { get; set; }
