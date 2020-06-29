@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows;
 
 namespace Contacts
@@ -13,5 +9,8 @@ namespace Contacts
     /// </summary>
     public partial class App : Application
     {
+        string databaseName = "Contacts.db";
+        string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        string databasePath = Path.Combine(folderPath, databaseName);
     }
 }

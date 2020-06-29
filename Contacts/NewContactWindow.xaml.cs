@@ -1,7 +1,5 @@
 ﻿using Contacts.Classes;
 using SQLite;
-using System;
-using System.IO;
 using System.Windows;
 
 namespace Contacts
@@ -25,10 +23,6 @@ namespace Contacts
                 Email=emailTextBox.Text,
                 Phone=phoneTextBox.Text
             };
-
-            string databaseName = "Contacts.db";
-            string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            string databasePath = Path.Combine(folderPath, databaseName);
 
             //Opening a connection with SQLite
             //Not a good way to opem a connection
