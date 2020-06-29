@@ -39,7 +39,7 @@ namespace Contacts
             //connection.Close();
 
             //One-time transaction with SQLite using the "Using" statement
-            using(SQLiteConnection connection = new SQLiteConnection(databasePath))
+            using(SQLiteConnection connection = new SQLiteConnection(App.databasePath))
             {
                 //Creating a table if it does not already exist(Type-safe Generic Method)
                 connection.CreateTable<Contact>();
