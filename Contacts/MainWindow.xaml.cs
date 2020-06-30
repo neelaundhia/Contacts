@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
 
 namespace Contacts
 {
@@ -37,7 +36,17 @@ namespace Contacts
             using (SQLiteConnection conn = new SQLiteConnection(App.databasePath))
             {
                 conn.CreateTable<Contact>();
+
+                contacts = (conn.Table<Contact>().ToList()).OrderBy(c => c.Name).ToList();
+                
+                /*
+                Alternative(SQL like syntax for Linq)
                 contacts = conn.Table<Contact>().ToList();
+                contacts = (from c in contacts
+                                orderby c.Name
+                                select c).ToList();
+                */
+
             }
 
             if(contacts != null)
@@ -62,6 +71,14 @@ namespace Contacts
             TextBox searchTextBox = sender as TextBox;
 
             var filteredList = contacts.Where(c => c.Name.ToLower().Contains(searchTextBox.Text.ToLower())).ToList();
+
+            /*
+            Alternative(SQL like syntax for Linq)
+            var filteredList = (from c in contacts
+                                where c.Name.ToLower().Contains(searchTextBox.Text.ToLower())
+                                orderby c.Name
+                                select c).ToList();
+            */
 
             contactsListView.ItemsSource = filteredList;
         }
