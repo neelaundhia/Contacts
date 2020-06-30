@@ -2,7 +2,7 @@
 
 namespace Contacts.Classes
 {
-    class Contact
+    public class Contact
     {
         //SQLite Attributes
         [PrimaryKey, AutoIncrement]
